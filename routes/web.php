@@ -44,3 +44,42 @@ Route::get('biodata/{nama}/{kelas}/{agama}/{alamat}/{hobby}', function($a,$b,$c,
             Alamat : '.$d.' <br>
             Hobby &nbsp: '.$e;
 });
+
+Route::get('testmodel/id',function()
+    {
+        $query = App\Post::all();
+        return $query;
+    }
+);
+
+Route::get('testmodel/title',function()
+    {
+        $query = App\Post::find(1);
+        return $query;
+    }
+);
+
+Route::get('testmodel/cari',function()
+    {
+        $query = App\Post::where('title','like','%tips%')->get();
+        return $query;
+    }
+);
+
+Route::get('testmodel/hapus',function()
+    {
+        $post = App\Post::find(1);
+        $post->delete();
+    }
+);
+
+Route::get('testmodel/tambah',function()
+    {
+    $post = new App\Post;
+$post->title = "7 Amalan Pembuka Jodoh";
+$post->content = "shalat malam, sedekah, puasa sunah, silaturahmi, senyum, doa, tobat";
+$post->save();
+return $post;
+    }
+);
+
