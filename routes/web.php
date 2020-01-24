@@ -11,39 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('profil/nama', function(){
-    return "Nama    : Raihan Fadzan Aldy";
-});
-
-Route::get('profil/kelas', function(){
-    return "Kelas    : XI Rpl 1";
-});
-
-Route::get('profil/agama', function(){
-    return "agama    : Islam";
-});
-
-Route::get('profil/alamat', function(){
-    return "Alamat    : Graha Rancamanyar";
-});
-
-Route::get('profil/hobby', function(){
-    return "Hobby    : Tidur";
-});
-
-//Route Parameter
-Route::get('biodata/{nama}/{kelas}/{agama}/{alamat}/{hobby}', function($a,$b,$c,$d,$e){
-    return '<h1><center>Biodata</center></h1> <br>
-            Nama  &nbsp&nbsp: '.$a.' <br>
-            Kelas &nbsp&nbsp&nbsp: '.$b.' <br>
-            Agama  : '.$c.' <br>
-            Alamat : '.$d.' <br>
-            Hobby &nbsp: '.$e;
-});
 
 Route::get('testmodel/id',function()
     {
@@ -83,3 +50,33 @@ return $post;
     }
 );
 
+//------------_______ZZZ_________------------------
+
+Route::get('data-barang/ambil',function()
+    {
+        $query = App\Barang::all()->take(3);
+        return $query;
+    }
+);
+
+Route::get('data-barang/select',function()
+    {
+        $query = App\Barang::select('nm_barang','kd_barang','kategori')->first();
+        return $query;
+    }
+);
+
+Route::get('data-barang/tambah/{kd_barang}/{nm_barang}/{kategori}/{hrg_beli}/{hrg_jual}/{stok_barang}',
+        function($kd_barang,$nm_barang,$kategori,$hrg_beli,$hrg_jual,$stok_barang){
+            $post = new App\Barang;
+            $post->kd_barang = $kd_barang;
+            $post->nm_barang = $nm_barang;
+            $post->kategori  = $kategori;
+            $post->hrg_beli  = $hrg_beli;
+            $post->hrg_jual  = $hrg_jual;
+            $post->stok_barang  = $stok_barang;
+            $post->save();
+            return $post;
+        }
+
+);
