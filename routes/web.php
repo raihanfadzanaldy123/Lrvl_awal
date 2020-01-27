@@ -61,7 +61,7 @@ Route::get('data-barang/ambil',function()
 
 Route::get('data-barang/select',function()
     {
-        $query = App\Barang::select('nm_barang','kd_barang','kategori')->first();
+        $query = App\Barang::select('nm_barang','kd_barang','kategori')->get();
         return $query;
     }
 );
