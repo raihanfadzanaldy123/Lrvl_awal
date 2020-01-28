@@ -80,3 +80,12 @@ Route::get('data-barang/tambah/{kd_barang}/{nm_barang}/{kategori}/{hrg_beli}/{hr
         }
 
 );
+
+Route::get('Latihan','LatihanControler@halo');
+Route::get('tambah/{a?}/{b?}','LatihanControler@tambahin');
+Route::get('kurang/{a?}/{b?}','LatihanControler@kurangin');
+Route::get('bagi/{a?}/{b?}','LatihanControler@bagiin');
+Route::get('kali/{a?}/{b?}','LatihanControler@kaliin');
+Route::get('/data-1','LatihanControler@loop');
+
+
