@@ -88,4 +88,19 @@ Route::get('bagi/{a?}/{b?}','LatihanControler@bagiin');
 Route::get('kali/{a?}/{b?}','LatihanControler@kaliin');
 Route::get('/data-1','LatihanControler@loop');
 
+// Route TabunganController
+Route::get('tabungan','TabunganController@index');
+Route::get('tabungan/{id}','TabunganController@show');
+Route::get('tabungan-tambah/{nis}/{nama}/{kelas}/{jmlh}','TabunganController@store');
+Route::get('tabungan-edit/{id?}/{nis?}/{nama?}/{kelas?}/{jmlh?}','TabunganController@update');
+Route::get('tabungan-delete','TabunganController@delete');
+
+// Route CustomerController
+Route::get('customer','CustomerController@index');
+Route::get('customer-tambah/{code_customer}/{name}/{email}/{country}/{city}/{address}/{contact_number}',
+'CustomerController@store');
+Route::get('customer-edit/{id}/{code_customer}/{name}/{email}/{country}/{city}/{address}/{contact_number}','CustomerController@update');
+Route::get('customer-delete','CustomerController@delete');
+
+
 
