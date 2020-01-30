@@ -102,5 +102,10 @@ Route::get('customer-tambah/{code_customer}/{name}/{email}/{country}/{city}/{add
 Route::get('customer-edit/{id}/{code_customer}/{name}/{email}/{country}/{city}/{address}/{contact_number}','CustomerController@update');
 Route::get('customer-delete','CustomerController@delete');
 
+// Route Passing data MVC
+Route::get('pass','practiceController@pass');
+Route::get('passe','practiceController@pass1');
+Route::get('passe2','practiceController@pass2');
+
 
 
