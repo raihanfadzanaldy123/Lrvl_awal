@@ -106,6 +106,11 @@ Route::get('customer-delete','CustomerController@delete');
 Route::get('pass','practiceController@pass');
 Route::get('passe','practiceController@pass1');
 Route::get('passe2','practiceController@pass2');
+Route::get('passe3/{id}','practiceController@pass3');
+
+// Route Passing data Barang
+Route::get('passBarang/{id}','controllerBarang@show');
+Route::get('passBarang','controllerBarang@index');
 
 
 
